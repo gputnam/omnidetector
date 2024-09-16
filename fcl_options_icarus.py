@@ -130,7 +130,7 @@ class Lifetime(FclOption):
     argtype = float
 
     def draw(self, rand): # override to uniform
-        return max(1e2, random.uniform(self.value - rand, self.value + rand))
+        return max(1e3, random.uniform(self.value - rand, self.value + rand))
 
 @register_fclopt
 class SignalShape(FclOption):
@@ -146,5 +146,5 @@ class SignalShape(FclOption):
         return min(14, max(0, random.uniform(self.value - rand, self.value + rand)))
 
     def config(self):
-        return self.path + ": " + ("icarus_fnal_fit_bin%i.json.bz2" % self.value)
+        return self.path + ": " + ('"icarus_fnal_fit_ks_P0nom_P1bin%i.json.bz2"' % self.value)
 

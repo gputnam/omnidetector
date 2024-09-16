@@ -2,11 +2,8 @@ import argparse
 from fcl_options_icarus import FCL_OPTIONS, BASE_FCL
 
 fhicl_template = \
-"""
-#include "{base_fcl}"
-
-{overrides}
-"""
+"""#include "{base_fcl}"
+{overrides}"""
 
 def build_opt(opt, args):
     rnd = getattr(args, ("%s_rand" % opt.longopt)[2:].replace("-", "_"))
