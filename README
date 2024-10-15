@@ -1,3 +1,6 @@
+Generates a detsim fcl file with relevant parameters thrown and/or specified
+at command line.
+
 usage: omnidetector.py [-h] [--base-fcl BASE_FCL] [--gain0-set GAIN0_SET]
                        [--gain0-rand [GAIN0_RAND]] [--gain1-set GAIN1_SET]
                        [--gain1-rand [GAIN1_RAND]] [--gain2-set GAIN2_SET]
