@@ -49,7 +49,7 @@ class Gain0(Gain):
     longopt = "--gain0"
     shortopt = "-g0"
     name = "Gain0"
-    default = 1.19918701e1
+    default = 1.705212e1
     path = OVERRIDE_PATH + ".structs.gain0"
 
 @register_fclopt
