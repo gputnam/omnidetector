@@ -1,79 +1,111 @@
-Generates a detsim fcl file with relevant parameters thrown and/or specified
-at command line.
+usage: omnidetectorIC.py [-h] [--base-fcl BASE_FCL] [--gain0-set GAIN0_SET]
+                         [--gain0-rand [GAIN0_RAND]] [--gain1-set GAIN1_SET]
+                         [--gain1-rand [GAIN1_RAND]] [--gain2-set GAIN2_SET]
+                         [--gain2-rand [GAIN2_RAND]]
+                         [--shaping0-set SHAPING0_SET]
+                         [--shaping0-rand [SHAPING0_RAND]]
+                         [--shaping1-set SHAPING1_SET]
+                         [--shaping1-rand [SHAPING1_RAND]]
+                         [--shaping2-set SHAPING2_SET]
+                         [--shaping2-rand [SHAPING2_RAND]]
+                         [--coh-noise-set COH_NOISE_SET]
+                         [--coh-noise-rand [COH_NOISE_RAND]]
+                         [--int-noise-set INT_NOISE_SET]
+                         [--int-noise-rand [INT_NOISE_RAND]]
+                         [--lifetime-set LIFETIME_SET]
+                         [--lifetime-rand [LIFETIME_RAND]]
+                         [--attenuation-set ATTENUATION_SET]
+                         [--attenuation-rand [ATTENUATION_RAND]]
+                         [--signal-shape-index-set SIGNAL_SHAPE_INDEX_SET]
+                         [--signal-shape-index-rand [SIGNAL_SHAPE_INDEX_RAND]]
+                         [--shapegain0-set SHAPEGAIN0_SET]
+                         [--shapegain0-rand [SHAPEGAIN0_RAND]]
+                         [--shapegain1-set SHAPEGAIN1_SET]
+                         [--shapegain1-rand [SHAPEGAIN1_RAND]]
+                         [--shapegain2-set SHAPEGAIN2_SET]
+                         [--shapegain2-rand [SHAPEGAIN2_RAND]]
 
-usage: omnidetector.py [-h] [--base-fcl BASE_FCL] [--gain0-set GAIN0_SET]
-                       [--gain0-rand [GAIN0_RAND]] [--gain1-set GAIN1_SET]
-                       [--gain1-rand [GAIN1_RAND]] [--gain2-set GAIN2_SET]
-                       [--gain2-rand [GAIN2_RAND]]
-                       [--shaping0-set SHAPING0_SET]
-                       [--shaping0-rand [SHAPING0_RAND]]
-                       [--shaping1-set SHAPING1_SET]
-                       [--shaping1-rand [SHAPING1_RAND]]
-                       [--shaping2-set SHAPING2_SET]
-                       [--shaping2-rand [SHAPING2_RAND]]
-                       [--coh-noise-set COH_NOISE_SET]
-                       [--coh-noise-rand [COH_NOISE_RAND]]
-                       [--int-noise-set INT_NOISE_SET]
-                       [--int-noise-rand [INT_NOISE_RAND]]
-                       [--lifetime-set LIFETIME_SET]
-                       [--lifetime-rand [LIFETIME_RAND]]
-                       [--signal-shape-index-set SIGNAL_SHAPE_INDEX_SET]
-                       [--signal-shape-index-rand [SIGNAL_SHAPE_INDEX_RAND]]
-
-optional arguments:
+options:
   -h, --help            show this help message and exit
-  --base-fcl BASE_FCL, -b BASE_FCL
+  --base-fcl, -b BASE_FCL
                         Base fhicl file to use.
-  --gain0-set GAIN0_SET, -g0s GAIN0_SET
-                        Set Gain0 central value. Default is 11.9918701.
-  --gain0-rand [GAIN0_RAND], -g0r [GAIN0_RAND]
+  --gain0-set, -g0s GAIN0_SET
+                        Set Gain0 central value. Default is 18.0839.
+  --gain0-rand, -g0r [GAIN0_RAND]
                         Draw Gain0 from distribution. Optional: set
                         distribution width. Default is 0.1.
-  --gain1-set GAIN1_SET, -g1s GAIN1_SET
-                        Set Gain1 central value. Default is 12.6181926.
-  --gain1-rand [GAIN1_RAND], -g1r [GAIN1_RAND]
+  --gain1-set, -g1s GAIN1_SET
+                        Set Gain1 central value. Default is 12.2379.
+  --gain1-rand, -g1r [GAIN1_RAND]
                         Draw Gain1 from distribution. Optional: set
                         distribution width. Default is 0.1.
-  --gain2-set GAIN2_SET, -g2s GAIN2_SET
-                        Set Gain2 central value. Default is 13.0261362.
-  --gain2-rand [GAIN2_RAND], -g2r [GAIN2_RAND]
+  --gain2-set, -g2s GAIN2_SET
+                        Set Gain2 central value. Default is 13.8819.
+  --gain2-rand, -g2r [GAIN2_RAND]
                         Draw Gain2 from distribution. Optional: set
                         distribution width. Default is 0.1.
-  --shaping0-set SHAPING0_SET, -s0s SHAPING0_SET
+  --shaping0-set, -s0s SHAPING0_SET
                         Set Shaping Time P0 central value. Default is 1.3.
-  --shaping0-rand [SHAPING0_RAND], -s0r [SHAPING0_RAND]
+  --shaping0-rand, -s0r [SHAPING0_RAND]
                         Draw Shaping Time P0 from distribution. Optional: set
                         distribution width. Default is 0.05.
-  --shaping1-set SHAPING1_SET, -s1s SHAPING1_SET
+  --shaping1-set, -s1s SHAPING1_SET
                         Set Shaping Time P1 central value. Default is 1.45.
-  --shaping1-rand [SHAPING1_RAND], -s1r [SHAPING1_RAND]
+  --shaping1-rand, -s1r [SHAPING1_RAND]
                         Draw Shaping Time P1 from distribution. Optional: set
                         distribution width. Default is 0.05.
-  --shaping2-set SHAPING2_SET, -s2s SHAPING2_SET
+  --shaping2-set, -s2s SHAPING2_SET
                         Set Shaping Time P2 central value. Default is 1.3.
-  --shaping2-rand [SHAPING2_RAND], -s2r [SHAPING2_RAND]
+  --shaping2-rand, -s2r [SHAPING2_RAND]
                         Draw Shaping Time P2 from distribution. Optional: set
                         distribution width. Default is 0.05.
-  --coh-noise-set COH_NOISE_SET, -cns COH_NOISE_SET
+  --coh-noise-set, -cns COH_NOISE_SET
                         Set Coherent Noise central value. Default is 1.
-  --coh-noise-rand [COH_NOISE_RAND], -cnr [COH_NOISE_RAND]
+  --coh-noise-rand, -cnr [COH_NOISE_RAND]
                         Draw Coherent Noise from distribution. Optional: set
                         distribution width. Default is 0.05.
-  --int-noise-set INT_NOISE_SET, -ins INT_NOISE_SET
+  --int-noise-set, -ins INT_NOISE_SET
                         Set Inherent Noise central value. Default is 1.
-  --int-noise-rand [INT_NOISE_RAND], -inr [INT_NOISE_RAND]
+  --int-noise-rand, -inr [INT_NOISE_RAND]
                         Draw Inherent Noise from distribution. Optional: set
                         distribution width. Default is 0.05.
-  --lifetime-set LIFETIME_SET, -ls LIFETIME_SET
+  --lifetime-set, -ls LIFETIME_SET
                         Set Electron Lifetime central value. Default is
                         3000.0.
-  --lifetime-rand [LIFETIME_RAND], -lr [LIFETIME_RAND]
+  --lifetime-rand, -lr [LIFETIME_RAND]
                         Draw Electron Lifetime from distribution. Optional:
                         set distribution width. Default is 4000.0.
-  --signal-shape-index-set SIGNAL_SHAPE_INDEX_SET, -sis SIGNAL_SHAPE_INDEX_SET
+  --attenuation-set, -as ATTENUATION_SET
+                        Set Electron Attenuation central value. Default is
+                        0.2.
+  --attenuation-rand, -ar [ATTENUATION_RAND]
+                        Draw Electron Attenuation from distribution. Optional:
+                        set distribution width. Default is 0.1.
+  --signal-shape-index-set, -sis SIGNAL_SHAPE_INDEX_SET
                         Set Middle Induction Signal Shape Index central value.
                         Default is 7.
-  --signal-shape-index-rand [SIGNAL_SHAPE_INDEX_RAND], -sir [SIGNAL_SHAPE_INDEX_RAND]
+  --signal-shape-index-rand, -sir [SIGNAL_SHAPE_INDEX_RAND]
                         Draw Middle Induction Signal Shape Index from
                         distribution. Optional: set distribution width.
                         Default is 7.
+  --shapegain0-set, -sg0s SHAPEGAIN0_SET
+                        Set Shaping Time + Gain P0 central value. Default is
+                        (1.3, 1).
+  --shapegain0-rand, -sg0r [SHAPEGAIN0_RAND]
+                        Draw Shaping Time + Gain P0 from distribution.
+                        Optional: set distribution width. Default is (0.2,
+                        0.05).
+  --shapegain1-set, -sg1s SHAPEGAIN1_SET
+                        Set Shaping Time + Gain P1 central value. Default is
+                        (1.45, 1).
+  --shapegain1-rand, -sg1r [SHAPEGAIN1_RAND]
+                        Draw Shaping Time + Gain P1 from distribution.
+                        Optional: set distribution width. Default is (0.2,
+                        0.05).
+  --shapegain2-set, -sg2s SHAPEGAIN2_SET
+                        Set Shaping Time + Gain P2 central value. Default is
+                        (1.3, 1).
+  --shapegain2-rand, -sg2r [SHAPEGAIN2_RAND]
+                        Draw Shaping Time + Gain P2 from distribution.
+                        Optional: set distribution width. Default is (0.2,
+                        0.05).
