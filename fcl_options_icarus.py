@@ -1,6 +1,6 @@
 import random
 
-BASE_FCL = "detsim_2d_icarus_fitFR.fcl"
+BASE_FCL = "detsim_2d_icarus_refactored_yzsim_notrigger.fcl"
 
 OVERRIDE_PATH = "physics.producers.daq.wcls_main"
 
