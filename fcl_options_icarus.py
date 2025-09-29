@@ -133,6 +133,22 @@ class Lifetime(FclOption):
         return max(1e3, random.uniform(self.value - rand, self.value + rand))
 
 @register_fclopt
+class Attenuation(FclOption):
+    longopt = "--attenuation"
+    shortopt = "-a"
+    name = "Electron Attenuation"
+    default = 0.2
+    rand_default = 0.1
+    path = OVERRIDE_PATH + ".structs.lifetime"
+    argtype = float
+
+    def draw(self, rand): # override to uniform
+        return max(0.01, random.uniform(self.value - rand, self.value + rand))
+
+    def config(self):
+        return self.path + ": " + str(1/self.value)
+
+@register_fclopt
 class SignalShape(FclOption):
     longopt = "--signal-shape-index"
     shortopt = "-si"
@@ -147,4 +163,44 @@ class SignalShape(FclOption):
 
     def config(self):
         return self.path + ": " + ('"icarus_fnal_fit_ks_P0nom_P1bin%i.json.bz2"' % self.value)
+
+class ShapeGain(FclOption):
+    longopt = "--shape-gain"
+    shortopt = "-sg"
+    name = "Signal Shape + Gain"
+
+    argtype = lambda s: None if s is None else (float(s.split(",")[0]), float(s.split(",")[1]))
+    default = (1.3, 1)
+    rand_default = (0.2, 0.05)
+    path = (OVERRIDE_PATH + ".structs.shaping", OVERRIDE_PATH + ".structs.gain")
+
+    def draw(self, rand):
+        return self.value[0]*random.uniform(1 - rand[0], 1 + rand[0]), self.value[1]*(1 + random.gauss(0., sigma=rand[1]))
+
+    def config(self):
+        values = (self.value[0], self.value[1]*(self.default[0]/self.value[0])) # scale gain to shaping
+        return "\n".join([p + ": " + str(v) for (p, v) in zip(self.path, values)])
+
+@register_fclopt
+class ShapeGain0(ShapeGain):
+    longopt = "--shapegain0"
+    shortopt = "-sg0"
+    name = "Shaping Time + Gain P0"
+    path = (OVERRIDE_PATH + ".structs.shaping0", OVERRIDE_PATH + ".structs.gain0")
+
+@register_fclopt
+class ShapeGain1(ShapeGain):
+    longopt = "--shapegain1"
+    shortopt = "-sg1"
+    name = "Shaping Time + Gain P1"
+    default = (1.45, 1) # different on middle induction
+    path = (OVERRIDE_PATH + ".structs.shaping1", OVERRIDE_PATH + ".structs.gain1")
+
+@register_fclopt
+class ShapeGain2(ShapeGain):
+    longopt = "--shapegain2"
+    shortopt = "-sg2"
+    name = "Shaping Time + Gain P2"
+    path = (OVERRIDE_PATH + ".structs.shaping2", OVERRIDE_PATH + ".structs.gain2")
+
 
