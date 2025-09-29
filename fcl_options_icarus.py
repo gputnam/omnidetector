@@ -49,7 +49,7 @@ class Gain0(Gain):
     longopt = "--gain0"
     shortopt = "-g0"
     name = "Gain0"
-    default = 1.705212e1
+    default = 18.0839
     path = OVERRIDE_PATH + ".structs.gain0"
 
 @register_fclopt
@@ -57,7 +57,7 @@ class Gain1(Gain):
     longopt = "--gain1"
     shortopt = "-g1"
     name = "Gain1"
-    default = 1.26181926e1
+    default = 12.2379
     path = OVERRIDE_PATH + ".structs.gain1"
 
 @register_fclopt
@@ -65,7 +65,7 @@ class Gain2(Gain):
     longopt = "--gain2"
     shortopt = "-g2"
     name = "Gain2"
-    default = 1.30261362e1
+    default = 13.8819
     path = OVERRIDE_PATH + ".structs.gain2"
 
 class Shaping(FclOption):
