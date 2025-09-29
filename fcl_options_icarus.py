@@ -113,7 +113,7 @@ class Attenuation(FclOption):
     argtype = float
 
     def draw(self, rand): # override to uniform
-        return max(0.01, random.uniform(self.value - rand, self.value + rand))
+        return max(0.01, random.uniform(self.value - rand, self.value + rand))*1e-3
 
     def config(self):
         return self.path + ": " + str(1/self.value)
