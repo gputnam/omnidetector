@@ -156,6 +156,7 @@ class ShapeGain0(ShapeGain):
     longopt = "--shapegain0"
     shortopt = "-sg0"
     name = "Shaping Time + Gain P0"
+    default = (1.3, 18.0839)
     path = (OVERRIDE_PATH + ".structs.shaping0", OVERRIDE_PATH + ".structs.gain0")
 
 @register_fclopt
@@ -163,7 +164,7 @@ class ShapeGain1(ShapeGain):
     longopt = "--shapegain1"
     shortopt = "-sg1"
     name = "Shaping Time + Gain P1"
-    default = (1.45, 1) # different on middle induction
+    default = (1.45, 12.2379) # default shaping is different on middle induction
     path = (OVERRIDE_PATH + ".structs.shaping1", OVERRIDE_PATH + ".structs.gain1")
 
 @register_fclopt
@@ -171,6 +172,7 @@ class ShapeGain2(ShapeGain):
     longopt = "--shapegain2"
     shortopt = "-sg2"
     name = "Shaping Time + Gain P2"
+    default = (1.3, 13.8819)
     path = (OVERRIDE_PATH + ".structs.shaping2", OVERRIDE_PATH + ".structs.gain2")
 
 
